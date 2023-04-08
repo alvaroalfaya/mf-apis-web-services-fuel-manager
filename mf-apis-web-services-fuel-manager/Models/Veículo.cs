@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace mf_apis_web_services_fuel_manager.Models
 {
-    public class Veículo
+    [Table("Veiculos")]
+    public class Veiculo
     {
         [Key]
         public int Id { get; set; }
@@ -17,5 +19,6 @@ namespace mf_apis_web_services_fuel_manager.Models
         public int AnoFabricacao { get; set; }
         [Required]
         public int AnoModelo { get; set; }
+        public ICollection<Consumo> Consumos { get; set; }
     }
 }
